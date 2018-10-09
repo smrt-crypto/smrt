@@ -550,7 +550,7 @@ SOURCES += nlf/activemasternode.cpp \
            nlf/test/sighash_tests.cpp \
            nlf/test/sigopcount_tests.cpp \
            nlf/test/skiplist_tests.cpp \
-           nlf/test/test_smrt.cpp \
+           nlf/test/test_nlf.cpp \
            nlf/test/timedata_tests.cpp \
            nlf/test/transaction_tests.cpp \
            nlf/test/uint256_tests.cpp \
