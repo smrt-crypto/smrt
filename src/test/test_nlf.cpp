@@ -2,7 +2,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#define BOOST_TEST_MODULE Smrt Test Suite
+#define BOOST_TEST_MODULE NodeLife Test Suite
 
 #include "main.h"
 #include "random.h"
