@@ -1,6 +1,6 @@
-usr/local/bin/smrt-qt usr/bin
+usr/local/bin/nlf-qt usr/bin
 share/pixmaps/bitcoin32.xpm usr/share/pixmaps
 share/pixmaps/bitcoin16.xpm usr/share/pixmaps
 share/pixmaps/bitcoin128.png usr/share/pixmaps
-debian/smrt-qt.desktop usr/share/applications
-debian/smrt-qt.protocol usr/share/kde4/services/
+debian/nlf-qt.desktop usr/share/applications
+debian/nlf-qt.protocol usr/share/kde4/services/
