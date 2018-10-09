@@ -1,31 +1,31 @@
 #!/bin/bash
 #
-#  smrtd The SMRT core server.
+#  nlfd The NodeLife core server.
 #
 #
 # chkconfig: 345 80 20
-# description: smrtd
-# processname: smrtd
+# description: nlfd
+# processname: nlfd
 #
 
 # Source function library.
 . /etc/init.d/functions
 
-# you can override defaults in /etc/sysconfig/smrtd, see below
-if [ -f /etc/sysconfig/smrtd ]; then
-        . /etc/sysconfig/smrtd
+# you can override defaults in /etc/sysconfig/nlfd, see below
+if [ -f /etc/sysconfig/nlfd ]; then
+        . /etc/sysconfig/nlfd
 fi
 
 RETVAL=0
 
-prog=smrtd
-# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/smrtd
-lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/smrtd}
+prog=nlfd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/nlfd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/nlfd}
 
-# smrtd defaults to /usr/bin/smrtd, override with BITCOIND_BIN
-bitcoind=${BITCOIND_BIN-/usr/bin/smrtd}
+# nlfd defaults to /usr/bin/nlfd, override with BITCOIND_BIN
+bitcoind=${BITCOIND_BIN-/usr/bin/nlfd}
 
-# smrtd opts default to -disablewallet, override with BITCOIND_OPTS
+# nlfd opts default to -disablewallet, override with BITCOIND_OPTS
 bitcoind_opts=${BITCOIND_OPTS}
 
 start() {
