@@ -3,6 +3,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
 // Copyright (c) 2017-2018 The SMRT developers
+// Copyright (c) 2018 The NodeLife developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,8 +26,8 @@
  *
  * \section intro_sec Introduction
  *
- * This is the developer documentation of the reference client for an experimental new digital currency called SMRT (http://www.smrt.org),
- * which enables instant payments to anyone, anywhere in the world. SMRT uses peer-to-peer technology to operate
+ * This is the developer documentation of the reference client for an experimental new digital currency called NodeLife (http://www.nodelife.io),
+ * which enables instant payments to anyone, anywhere in the world. NodeLife uses peer-to-peer technology to operate
  * with no central authority: managing transactions and issuing money are carried out collectively by the network.
  *
  * The software is a community-driven open source project, released under the MIT license.
@@ -70,13 +71,13 @@ bool AppInit(int argc, char* argv[])
 
     // Process help and version before taking care about datadir
     if (mapArgs.count("-?") || mapArgs.count("-help") || mapArgs.count("-version")) {
-        std::string strUsage = _("Smrt Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n";
+        std::string strUsage = _("nlf Core Daemon") + " " + _("version") + " " + FormatFullVersion() + "\n";
 
         if (mapArgs.count("-version")) {
             strUsage += LicenseInfo();
         } else {
             strUsage += "\n" + _("Usage:") + "\n" +
-                        "  smrtd [options]                     " + _("Start Smrt Core Daemon") + "\n";
+                        "  nlfd [options]                     " + _("Start nlf Core Daemon") + "\n";
 
             strUsage += "\n" + HelpMessage(HMM_BITCOIND);
         }
@@ -112,17 +113,17 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "smrt:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "nlf:"))
                 fCommandLine = true;
 
         if (fCommandLine) {
-            fprintf(stderr, "Error: There is no RPC client functionality in smrtd anymore. Use the smrt-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in nlfd anymore. Use the nlf-cli utility instead.\n");
             exit(1);
         }
 #ifndef WIN32
         fDaemon = GetBoolArg("-daemon", false);
         if (fDaemon) {
-            fprintf(stdout, "SMRT server starting\n");
+            fprintf(stdout, "NodeLife server starting\n");
 
             // Daemonize
             pid_t pid = fork();
@@ -175,7 +176,7 @@ int main(int argc, char* argv[])
 {
     SetupEnvironment();
 
-    // Connect smrtd signal handlers
+    // Connect nlfd signal handlers
     noui_connect();
 
     return (AppInit(argc, argv) ? 0 : 1);
