@@ -2,6 +2,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
 // Copyright (c) 2017-2018 The SMRT developers
+// Copyright (c) 2018 The NodeLife developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef MASTERNODE_H
@@ -15,7 +16,7 @@
 #include "timedata.h"
 #include "util.h"
 
-#define MASTERNODE_MIN_CONFIRMATIONS 15
+#define MASTERNODE_MIN_CONFIRMATIONS 11
 #define MASTERNODE_MIN_MNP_SECONDS (10 * 60)
 #define MASTERNODE_MIN_MNB_SECONDS (5 * 60)
 #define MASTERNODE_PING_SECONDS (5 * 60)
@@ -101,7 +102,7 @@ public:
 };
 
 //
-// The Masternode Class. For managing the Obfuscation process. It contains the input of the 5000 SMRT, signature to prove
+// The Masternode Class. For managing the Obfuscation process. It contains the input of the 5000 NodeLife, signature to prove
 // it's the one who own that ip address and code for calculating the payment election.
 //
 class CMasternode
