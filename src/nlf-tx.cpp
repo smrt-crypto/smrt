@@ -46,10 +46,10 @@ static bool AppInitRawTx(int argc, char* argv[])
 
     if (argc < 2 || mapArgs.count("-?") || mapArgs.count("-help")) {
         // First part of help message is specific to this utility
-        std::string strUsage = _("Smrt Core smrt-tx utility version") + " " + FormatFullVersion() + "\n\n" +
+        std::string strUsage = _("nlf Core smrt-tx utility version") + " " + FormatFullVersion() + "\n\n" +
                                _("Usage:") + "\n" +
-                               "  smrt-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded smrt transaction") + "\n" +
-                               "  smrt-tx [options] -create [commands]   " + _("Create hex-encoded smrt transaction") + "\n" +
+                               "  nlf-tx [options] <hex-tx> [commands]  " + _("Update hex-encoded smrt transaction") + "\n" +
+                               "  nlf-tx [options] -create [commands]   " + _("Create hex-encoded smrt transaction") + "\n" +
                                "\n";
 
         fprintf(stdout, "%s", strUsage.c_str());
