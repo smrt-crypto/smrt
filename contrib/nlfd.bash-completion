@@ -1,12 +1,12 @@
-# bash programmable completion for smrtd(1) and smrt-cli(1)
+# bash programmable completion for nlfd(1) and nlf-cli(1)
 # Copyright (c) 2012,2014 Christian von Roques <roques@mti.ag>
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-have smrtd && {
+have nlfd && {
 
-# call $smrtd for RPC
-_smrt_rpc() {
+# call $nlfd for RPC
+_nlf_rpc() {
     # determine already specified args necessary for RPC
     local rpcargs=()
     for i in ${COMP_LINE}; do
@@ -16,23 +16,23 @@ _smrt_rpc() {
                 ;;
         esac
     done
-    $smrtd "${rpcargs[@]}" "$@"
+    $nlfd "${rpcargs[@]}" "$@"
 }
 
-# Add smrt accounts to COMPREPLY
-_smrt_accounts() {
+# Add nlf accounts to COMPREPLY
+_nlf_accounts() {
     local accounts
     accounts=$(_smrt_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
-_smrtd() {
+_nlfd() {
     local cur prev words=() cword
-    local smrtd
+    local nlfd
 
-    # save and use original argument to invoke smrtd
-    # smrtd might not be in $PATH
-    smrtd="$1"
+    # save and use original argument to invoke nlfd
+    # nlfd might not be in $PATH
+    nlfd="$1"
 
     COMPREPLY=()
     _get_comp_words_by_ref -n = cur prev words cword
@@ -53,7 +53,7 @@ _smrtd() {
     if ((cword > 3)); then
         case ${words[cword-3]} in
             addmultisigaddress)
-                _smrt_accounts
+                _nlf_accounts
                 return 0
                 ;;
             getbalance|gettxout|importaddress|importprivkey|listreceivedbyaccount|listreceivedbyaddress|listsinceblock)
@@ -74,7 +74,7 @@ _smrtd() {
                 return 0
                 ;;
             move|setaccount)
-                _smrt_accounts
+                _nlf_accounts
                 return 0
                 ;;
         esac
@@ -90,7 +90,7 @@ _smrtd() {
             return 0
             ;;
         getaccountaddress|getaddressesbyaccount|getbalance|getnewaddress|getreceivedbyaccount|listtransactions|move|sendfrom|sendmany)
-            _smrt_accounts
+            _nlf_accounts
             return 0
             ;;
     esac
@@ -114,12 +114,12 @@ _smrtd() {
 
             # only parse --help if senseful
             if [[ -z "$cur" || "$cur" =~ ^- ]]; then
-                helpopts=$($smrtd --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
+                helpopts=$($nlfd --help 2>&1 | awk '$1 ~ /^-/ { sub(/=.*/, "="); print $1 }' )
             fi
 
             # only parse help if senseful
             if [[ -z "$cur" || "$cur" =~ ^[a-z] ]]; then
-                commands=$(_smrt_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
+                commands=$(_nlf_rpc help 2>/dev/null | awk '$1 ~ /^[a-z]/ { print $1; }')
             fi
 
             COMPREPLY=( $( compgen -W "$helpopts $commands" -- "$cur" ) )
@@ -133,7 +133,7 @@ _smrtd() {
     esac
 }
 
-complete -F _smrtd smrtd smrt-cli
+complete -F _nlfd nlfd nlf-cli
 }
 
 # Local variables:
