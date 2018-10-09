@@ -2056,7 +2056,7 @@ static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck()
 {
-    RenameThread("smrt-scriptch");
+    RenameThread("nlf-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -3152,7 +3152,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                 nHeight = (*mi).second->nHeight + 1;
         }
 
-        // SMRT
+        // NodeLife
         // It is entierly possible that we don't have enough data and this could fail
         // (i.e. the block could indeed be valid). Store the block for later consideration
         // but issue an initial reject message.
