@@ -16,14 +16,14 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "SMRT"
-            VALUE "FileDescription",    "smrtd (OSS daemon/client for Smrt)"
+            VALUE "CompanyName",        "NodeLife"
+            VALUE "FileDescription",    "nlfd (OSS daemon/client for nlf)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "smrtd"
+            VALUE "InternalName",       "nlfd"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "smrtd.exe"
-            VALUE "ProductName",        "smrtd"
+            VALUE "OriginalFilename",   "nlfd.exe"
+            VALUE "ProductName",        "nlfd"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END
