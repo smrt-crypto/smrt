@@ -66,7 +66,7 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/smrt.conf are parsed in qt/smrt.cpp's main()
+    // If Qt is used, parameters/nlf.conf are parsed in qt/nlf.cpp's main()
     ParseParameters(argc, argv);
 
     // Process help and version before taking care about datadir
