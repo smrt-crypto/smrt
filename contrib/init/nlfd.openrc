@@ -2,24 +2,24 @@
 
 # backward compatibility for existing gentoo layout
 #
-if [ -d "/var/lib/smrt/.smrt" ]; then
-	BITCOIND_DEFAULT_DATADIR="/var/lib/smrt/.smrt"
+if [ -d "/var/lib/nlf/.nlf" ]; then
+	BITCOIND_DEFAULT_DATADIR="/var/lib/nlf/.nlf"
 else
-	BITCOIND_DEFAULT_DATADIR="/var/lib/smrtd"
+	BITCOIND_DEFAULT_DATADIR="/var/lib/nlfd"
 fi
 
-BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/smrt/smrt.conf}
-BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/smrtd}
-BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/smrtd.pid}
+BITCOIND_CONFIGFILE=${BITCOIND_CONFIGFILE:-/etc/nlf/nlf.conf}
+BITCOIND_PIDDIR=${BITCOIND_PIDDIR:-/var/run/nlfd}
+BITCOIND_PIDFILE=${BITCOIND_PIDFILE:-${BITCOIND_PIDDIR}/nlfd.pid}
 BITCOIND_DATADIR=${BITCOIND_DATADIR:-${BITCOIND_DEFAULT_DATADIR}}
-BITCOIND_USER=${BITCOIND_USER:-smrt}
-BITCOIND_GROUP=${BITCOIND_GROUP:-smrt}
-BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/smrtd}
+BITCOIND_USER=${BITCOIND_USER:-nlf}
+BITCOIND_GROUP=${BITCOIND_GROUP:-nlf}
+BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/nlfd}
 
-name="SMRT Core Daemon"
-description="SMRT crypto-currency p2p network daemon"
+name="NodeLife Core Daemon"
+description="NodeLife crypto-currency p2p network daemon"
 
-command="/usr/bin/smrtd"
+command="/usr/bin/nlfd"
 command_args="-pid=\"${BITCOIND_PIDFILE}\" \
 		-conf=\"${BITCOIND_CONFIGFILE}\" \
 		-datadir=\"${BITCOIND_DATADIR}\" \
@@ -65,7 +65,7 @@ checkconfig()
 {
 	if ! grep -qs '^rpcpassword=' "${BITCOIND_CONFIGFILE}" ; then
 		eerror ""
-		eerror "ERROR: You must set a secure rpcpassword to run smrtd."
+		eerror "ERROR: You must set a secure rpcpassword to run nlfd."
 		eerror "The setting must appear in ${BITCOIND_CONFIGFILE}"
 		eerror ""
 		eerror "This password is security critical to securing wallets "
@@ -78,8 +78,8 @@ checkconfig()
 		eerror "It is also recommended that you also set alertnotify so you are "
 		eerror "notified of problems:"
 		eerror ""
-		eerror "ie: alertnotify=echo %%s | mail -s \"Smrt Alert\"" \
-			"admin@foo.com"
+		eerror "ie: alertnotify=echo %%s | mail -s \"NodeLife Alert\"" \
+			"admin@loo.com"
 		eerror ""
 		return 1
 	fi
