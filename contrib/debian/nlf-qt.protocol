@@ -1,6 +1,6 @@
 [Protocol]
-exec=smrt-qt '%u'
-protocol=smrt
+exec=nlf-qt '%u'
+protocol=nlf
 input=none
 output=none
 helper=true
