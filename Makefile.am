@@ -119,7 +119,7 @@ $(APP_DIST_DIR)/Applications:
 	@rm -f $@
 	@cd $(@D); $(LN_S) /Applications $(@F)
 
-$(APP_DIST_EXTRAS): $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/SMRT-Qt
+$(APP_DIST_EXTRAS): $(APP_DIST_DIR)/$(OSX_APP)/Contents/MacOS/NLF-Qt
 
 $(OSX_DMG): $(APP_DIST_EXTRAS)
 	$(GENISOIMAGE) -no-cache-inodes -D -l -probe -V "$(OSX_VOLNAME)" -no-pad -r -dir-mode 0755 -apple -o $@ dist
@@ -174,13 +174,13 @@ leveldb_baseline_filtered.info: leveldb_baseline.info
 baseline_filtered_combined.info: leveldb_baseline_filtered.info baseline_filtered.info
 	$(LCOV) -a leveldb_baseline_filtered.info -a baseline_filtered.info -o $@
 
-test_smrt.info: baseline_filtered_combined.info
+test_nlf.info: baseline_filtered_combined.info
 	$(MAKE) -C src/ check
 	$(LCOV) -c -d $(abs_builddir)/src -t test_nlf -o $@
 	$(LCOV) -z -d $(abs_builddir)/src
 	$(LCOV) -z -d $(abs_builddir)/src/leveldb
 
-test_smrt_filtered.info: test_nlf.info
+test_nlf_filtered.info: test_nlf.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
 block_test.info: test_nlf_filtered.info
@@ -193,13 +193,13 @@ block_test.info: test_nlf_filtered.info
 block_test_filtered.info: block_test.info
 	$(LCOV) -r $< "/usr/include/*" -o $@
 
-test_smrt_coverage.info: baseline_filtered_combined.info test_nlf_filtered.info
+test_nlf_coverage.info: baseline_filtered_combined.info test_nlf_filtered.info
 	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_nlf_filtered.info -o $@
 
 total_coverage.info:  baseline_filtered_combined.info test_nlf_filtered.info block_test_filtered.info
 	$(LCOV) -a baseline_filtered.info -a leveldb_baseline_filtered.info -a test_nlf_filtered.info -a block_test_filtered.info -o $@ | $(GREP) "\%" | $(AWK) '{ print substr($$3,2,50) "/" $$5 }' > coverage_percent.txt
 
-test_smrt.coverage/.dirstamp:  test_nlf_coverage.info
+test_nlf.coverage/.dirstamp:  test_nlf_coverage.info
 	$(GENHTML) -s $< -o $(@D)
 	@touch $@
 
