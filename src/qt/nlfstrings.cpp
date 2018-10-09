@@ -30,7 +30,7 @@ QT_TRANSLATE_NOOP("nlf-core", ""
 "notation for IPv6. This option can be specified multiple times (default: "
 "bind to all interfaces)"),
 QT_TRANSLATE_NOOP("nlf-core", ""
-"Cannot obtain a lock on data directory %s. SMRT Core is probably already "
+"Cannot obtain a lock on data directory %s. NodeLife Core is probably already "
 "running."),
 QT_TRANSLATE_NOOP("nlf-core", ""
 "Change automatic finalized budget voting behavior. mode=auto: Vote for only "
@@ -45,7 +45,7 @@ QT_TRANSLATE_NOOP("nlf-core", ""
 "Delete all wallet transactions and only recover those parts of the "
 "blockchain through -rescan on startup"),
 QT_TRANSLATE_NOOP("nlf-core", ""
-"Disable all SMRT specific functionality (Masternodes, Obfuscation, SwiftTX, "
+"Disable all NodeLife specific functionality (Masternodes, Obfuscation, SwiftTX, "
 "Budgeting) (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("nlf-core", ""
 "Distributed under the MIT software license, see the accompanying file "
@@ -79,7 +79,7 @@ QT_TRANSLATE_NOOP("nlf-core", ""
 "Fees (in NodeLife/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("nlf-core", ""
-"Fees (in SMRT/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in NodeLife/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("nlf-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -157,7 +157,7 @@ QT_TRANSLATE_NOOP("nlf-core", ""
 "in the configuration file:\n"
 "%s\n"
 "It is recommended you use the following random password:\n"
-"rpcuser=smrtrpc\n"
+"rpcuser=nlfrpc\n"
 "rpcpassword=%s\n"
 "(you do not need to remember this password)\n"
 "The username and password MUST NOT be the same.\n"
@@ -267,7 +267,7 @@ QT_TRANSLATE_NOOP("nlf-core", "Error initializing wallet database environment %s
 QT_TRANSLATE_NOOP("nlf-core", "Error loading block database"),
 QT_TRANSLATE_NOOP("nlf-core", "Error loading wallet.dat"),
 QT_TRANSLATE_NOOP("nlf-core", "Error loading wallet.dat: Wallet corrupted"),
-QT_TRANSLATE_NOOP("nlf-core", "Error loading wallet.dat: Wallet requires newer version of SMRT Core"),
+QT_TRANSLATE_NOOP("nlf-core", "Error loading wallet.dat: Wallet requires newer version of NodeLife Core"),
 QT_TRANSLATE_NOOP("nlf-core", "Error opening block database"),
 QT_TRANSLATE_NOOP("nlf-core", "Error reading from database, shutting down."),
 QT_TRANSLATE_NOOP("nlf-core", "Error recovering public key."),
