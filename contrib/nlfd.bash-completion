@@ -22,7 +22,7 @@ _nlf_rpc() {
 # Add nlf accounts to COMPREPLY
 _nlf_accounts() {
     local accounts
-    accounts=$(_smrt_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
+    accounts=$(_nlf_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')
     COMPREPLY=( "${COMPREPLY[@]}" $( compgen -W "$accounts" -- "$cur" ) )
 }
 
