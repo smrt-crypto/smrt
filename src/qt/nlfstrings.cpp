@@ -8,8 +8,8 @@
 #else
 #define UNUSED
 #endif
-static const char UNUSED *smrt_strings[] = {
-QT_TRANSLATE_NOOP("smrt-core", ""
+static const char UNUSED *nlf_strings[] = {
+QT_TRANSLATE_NOOP("nlf-core", ""
 "(1 = keep tx meta data e.g. account owner and payment request information, 2 "
 "= drop tx meta data)"),
 QT_TRANSLATE_NOOP("nlf-core", ""
@@ -76,7 +76,7 @@ QT_TRANSLATE_NOOP("nlf-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("nlf-core", ""
-"Fees (in SMRT/Kb) smaller than this are considered zero fee for relaying "
+"Fees (in NodeLife/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("nlf-core", ""
 "Fees (in SMRT/Kb) smaller than this are considered zero fee for transaction "
@@ -311,7 +311,7 @@ QT_TRANSLATE_NOOP("nlf-core", "Invalid netmask specified in -whitelist: '%s'"),
 QT_TRANSLATE_NOOP("nlf-core", "Invalid port detected in masternode.conf"),
 QT_TRANSLATE_NOOP("nlf-core", "Invalid private key."),
 QT_TRANSLATE_NOOP("nlf-core", "Invalid script detected."),
-QT_TRANSLATE_NOOP("nlf-core", "Keep N SMRT anonymized (default: %u)"),
+QT_TRANSLATE_NOOP("nlf-core", "Keep N NodeLife anonymized (default: %u)"),
 QT_TRANSLATE_NOOP("nlf-core", "Keep at most <n> unconnectable transactions in memory (default: %u)"),
 QT_TRANSLATE_NOOP("nlf-core", "Last Obfuscation was too recent."),
 QT_TRANSLATE_NOOP("nlf-core", "Last successful Obfuscation action was too recent."),
@@ -438,7 +438,7 @@ QT_TRANSLATE_NOOP("nlf-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("nlf-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("nlf-core", "Wallet %s resides outside data directory %s"),
 QT_TRANSLATE_NOOP("nlf-core", "Wallet is locked."),
-QT_TRANSLATE_NOOP("nlf-core", "Wallet needed to be rewritten: restart SMRT Core to complete"),
+QT_TRANSLATE_NOOP("nlf-core", "Wallet needed to be rewritten: restart NodeLife Core to complete"),
 QT_TRANSLATE_NOOP("nlf-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("nlf-core", "Wallet window title"),
 QT_TRANSLATE_NOOP("nlf-core", "Warning"),
