@@ -3,6 +3,7 @@
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The PIVX developers
 // Copyright (c) 2017-2018 The SMRT developers
+// Copyright (c) 2018 The NodeLife developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,7 +43,7 @@ using namespace boost;
 using namespace std;
 
 #if defined(NDEBUG)
-#error "SMRT cannot be compiled without assertions."
+#error "NodeLife cannot be compiled without assertions."
 #endif
 
 /**
@@ -1621,7 +1622,7 @@ int64_t GetBlockValue(int nHeight)
     }
 
     if (nHeight == 0) {
-        nSubsidy = 3800000 * COIN;
+        nSubsidy = 150000 * COIN;
     } else if (nHeight < Params().LAST_POW_BLOCK()  && nHeight > 0) {
 		nSubsidy = 13 * COIN;
     } else if (nHeight < 3987 && nHeight >= Params().LAST_POW_BLOCK()) {
