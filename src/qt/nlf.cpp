@@ -95,7 +95,7 @@ static void InitMessage(const std::string& message)
  */
 static std::string Translate(const char* psz)
 {
-    return QCoreApplication::translate("smrt-core", psz).toStdString();
+    return QCoreApplication::translate("nlf-core", psz).toStdString();
 }
 
 static QString GetLangTerritory()
@@ -142,11 +142,11 @@ static void initTranslations(QTranslator& qtTranslatorBase, QTranslator& qtTrans
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         QApplication::installTranslator(&qtTranslator);
 
-    // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in smrt.qrc)
+    // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in nlf.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         QApplication::installTranslator(&translatorBase);
 
-    // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in smrt.qrc)
+    // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in nlf.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         QApplication::installTranslator(&translator);
 }
@@ -585,7 +585,7 @@ int main(int argc, char* argv[])
     if (!Intro::pickDataDirectory())
         return 0;
 
-    /// 6. Determine availability of data directory and parse smrt.conf
+    /// 6. Determine availability of data directory and parse nlf.conf
     /// - Do not call GetDataDir(true) before this step finishes
     if (!boost::filesystem::is_directory(GetDataDir(false))) {
         QMessageBox::critical(0, QObject::tr("NodeLife Core"),
@@ -642,7 +642,7 @@ int main(int argc, char* argv[])
         exit(0);
 
     // Start up the payment server early, too, so impatient users that click on
-    // smrt: links repeatedly have their payment requests routed to this process:
+    // nlf: links repeatedly have their payment requests routed to this process:
     app.createPaymentServer();
 #endif
 
