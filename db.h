@@ -110,7 +110,7 @@ typedef unsigned short u_short;
 typedef int64_t db_seq_t;
 
 /* Thread and process identification. */
-typedef pthread_t db_threadid_t;
+typedef u_int32_t db_threadid_t;
 
 /* Basic types that are exported or quasi-exported. */
 typedef	u_int32_t	db_pgno_t;	/* Page number type. */
