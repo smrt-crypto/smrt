@@ -1,0 +1,26 @@
+# /etc/conf.d/nlfd: config file for /etc/init.d/nlfd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/nlf/nlf.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/nlfd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/nlfd.pid"
+
+# Where to write nlfd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/nlfd"
+
+# User and group to own nlfd process
+#BITCOIND_USER="nlf"
+#BITCOIND_GROUP="nlf"
+
+# Path to nlfd executable
+#BITCOIND_BIN="/usr/bin/nlfd"
+
+# Nice value to run nlfd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

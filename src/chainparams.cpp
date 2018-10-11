@@ -2,6 +2,7 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
 // Copyright (c) 2015-2017 The SMRT developers
+// Copyright (c) 2018 The NodeLife developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -96,20 +97,20 @@ public:
         pchMessageStart[3] = 0xb9;
         vAlertPubKey = ParseHex("04a192fb2af9dc52817816fed3b3b923dd2670e4c28636f7d24b30d21f3f98c97dbc1fd401987854e8cecfc3eac29c3d3c70f3150cccc72a7b94f0165efe681974");
         nDefaultPort = 52310;
-        bnProofOfWorkLimit = ~uint256(0) >> 20; // SMRT starting difficulty is 1 / 2^12
+        bnProofOfWorkLimit = ~uint256(0) >> 10; // NodeLife starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 65; // SMRT: 65s
-        nTargetSpacing = 1 * 65;  // SMRT: 65sec
+        nTargetTimespan = 1 * 65; // NLF: 65s
+        nTargetSpacing = 1 * 65;  // NLF: 65sec
 		nLastPOWBlock = 200;
         nMaturity = 100;
         nMasternodeCountDrift = 20;
         nModifierUpdateBlock = 615800;
-        nMaxMoneyOut = 21000000 * COIN;
+        nMaxMoneyOut = 8000000 * COIN;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -121,7 +122,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Space is infinite and smart";
+        const char* pszTimestamp = "NodeLife for life";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -140,8 +141,8 @@ public:
         assert(hashGenesisBlock == uint256("0x000004bbdad4fc22b6503801e3e815f3ebbc2be025e2533d7498d2062159d27a"));
         assert(genesis.hashMerkleRoot == uint256("0x4d99c2d971a19d4235bf756f694d550d7ecc4158acfc7a9d665b745d9eb2c101"));
 
-        vSeeds.push_back(CDNSSeedData("smrtcoin.org", "seed.smrtcoin.org"));     // Primary DNS Seeder 
-        vSeeds.push_back(CDNSSeedData("smrtcoin.org", "seed2.smrtcoin.org"));    // Secondary DNS Seeder
+        vSeeds.push_back(CDNSSeedData("nodelife.io", "seed.nodelife.io"));     // Primary DNS Seeder 
+        vSeeds.push_back(CDNSSeedData("nodelife.io", "seed2.nodelife.io"));    // Secondary DNS Seeder
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 63); //K
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19); //7
@@ -196,10 +197,10 @@ public:
         nRejectBlockOutdatedMajority = 75;
         nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
-        nTargetTimespan = 1 * 65; // SMRT: 65
-        nTargetSpacing = 1 * 65;  // SMRT: 65 sec
-        nLastPOWBlock = 720;
-        nMaturity = 15;
+        nTargetTimespan = 1 * 65; // NLF: 65
+        nTargetSpacing = 1 * 65;  // NLF: 65 sec
+        nLastPOWBlock = 2;
+        nMaturity = 11;
         nMasternodeCountDrift = 4;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 43199500 * COIN;
@@ -213,17 +214,17 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("smrtcoin.org", "testnet.seed.smrtcoin.org"));
-        vSeeds.push_back(CDNSSeedData("smrtcoin.org", "testnet.seed2.smrtcoin.org"));
+        vSeeds.push_back(CDNSSeedData("nodelife.io", "testnet.seed.nodelife.io"));
+        vSeeds.push_back(CDNSSeedData("nodelife.io", "testnet.seed2.nodelife.io"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 125); // s
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 21);  // 8
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 239);     // Testnet private keys start with '9' or 'c' (Bitcoin defaults)
-        // Testnet smrt BIP32 pubkeys start with 'DRKV'
+        // Testnet nlf BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
-        // Testnet smrt BIP32 prvkeys start with 'DRKP'
+        // Testnet nlf BIP32 prvkeys start with 'DRKP'
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x3a)(0x80)(0x58)(0x37).convert_to_container<std::vector<unsigned char> >();
-        // Testnet smrt BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet nlf BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE] = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         convertSeed6(vFixedSeeds, pnSeed6_test, ARRAYLEN(pnSeed6_test));
@@ -268,8 +269,8 @@ public:
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
-        nTargetTimespan = 24 * 60 * 60; // Smrt: 1 day
-        nTargetSpacing = 1 * 65;        // Smrt: 45 sec
+        nTargetTimespan = 24 * 60 * 60; // NLF: 1 day
+        nTargetSpacing = 1 * 65;        // NLF: 45 sec
         bnProofOfWorkLimit = ~uint256(0) >> 1;
         genesis.nTime = 1524823200;
         genesis.nBits = 0x207fffff;

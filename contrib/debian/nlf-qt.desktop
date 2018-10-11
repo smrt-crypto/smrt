@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=NodeLife
+Comment=NLF P2P Cryptocurrency
+Comment[fr]=nlf, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=nlf, eşten eşe kriptografik sanal para birimi
+Exec=nlf-qt %u
+Terminal=false
+Type=Application
+Icon=nlf128
+MimeType=x-scheme-handler/nlf;
+Categories=Office;Finance;

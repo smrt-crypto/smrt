@@ -1,0 +1,26 @@
+[Unit]
+Description=NodeLife's distributed currency daemon
+After=network.target
+
+[Service]
+User=nlf
+Group=nlf
+
+Type=forking
+PIDFile=/var/lib/nlfd/nlfd.pid
+
+ExecStart=/usr/bin/nlfd -daemon -pid=/var/lib/nlfd/nlfd.pid \
+          -conf=/etc/nlf/nlf.conf -datadir=/var/lib/nlfd
+
+ExecStop=-/usr/bin/nlf-cli -conf=/etc/nlf/nlf.conf \
+         -datadir=/var/lib/nlfd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
